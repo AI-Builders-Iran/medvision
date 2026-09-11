@@ -110,4 +110,4 @@ Not yet specified — check the repository for the current license before use.
 
 ---
 
-Part of **AI Builders Iran** — open-source, production-grade AI engineering.
+Part of **Versa** — open-source, production-grade AI engineering.
