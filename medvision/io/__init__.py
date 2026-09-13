@@ -1,9 +1,11 @@
 from .loaders.png import PNGLoader
-from .loaders.factory import LoaderFactory
+from .loaders.pipeline import PipelineLoader
 from .loaders.jpg import JPGLoader
+from .loaders.nifti import NIfTILoader
 
 __all__ = [
-    "LoaderFactory",
+    "PipelineLoader",
     "PNGLoader",
-    "JPGLoader"
+    "JPGLoader",
+    "NIfTILoader"
 ]
