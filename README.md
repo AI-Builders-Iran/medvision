@@ -1,4 +1,4 @@
-# medvision
+# 🏥 medvision
 
 **A modular Python library for detecting and correcting medical image artifacts — before they reach your model.**
 
@@ -82,7 +82,6 @@ pip install -r requirements.txt
 ```python
 from medvision.io import LoaderFactory
 
-loader = LoaderFactory.create("scan.png")
 image = loader.load("scan.png")
 
 print(image.data.shape, image.format)
