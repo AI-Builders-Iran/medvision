@@ -1,12 +1,13 @@
 import matplotlib
 import matplotlib.pyplot as plt
-
+from pydicom import examples
 from medvision.io.loaders.pipeline import PipelineLoader
 
 matplotlib.use(backend="QtAgg")
 
+path = examples.get_path("ct")
 image = PipelineLoader(
-    path=r"C:\Users\hosse\Downloads\walnut_masked.nii"
+    path=path
 ).load()
 
 # volume = image.data
@@ -31,4 +32,7 @@ image = PipelineLoader(
 #
 # plt.show()
 
-print(image.header)
+# plt.imshow(image.data, cmap="gray")
+# plt.axis("off")
+# plt.show()
+print(image.metadata.__sizeof__())
