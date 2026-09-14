@@ -1,11 +1,38 @@
 import matplotlib
 import matplotlib.pyplot as plt
-from medvision.io import JPGLoader
+from pydicom import examples
+from medvision.io.loaders.pipeline import PipelineLoader
+
 matplotlib.use(backend="QtAgg")
-loader = JPGLoader()
 
-image = loader.load(
-    path=r"D:\AI Source\Projects\list_of_projects\cancer_pictures\brisc2025\classification_task\train\meningioma\brisc2025_train_01149_me_ax_t1.jpg"
-)
+path = examples.get_path("ct")
+image = PipelineLoader(
+    path=path
+).load()
 
-print(image.affine)
+# volume = image.data
+#
+# fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+#
+# mid_x = volume.shape[0] // 2
+# mid_y = volume.shape[1] // 2
+# mid_z = volume.shape[2] // 2
+#
+# axes[0].imshow(volume[mid_x, :, :], cmap="gray")
+# axes[0].set_title("Sagittal")
+#
+# axes[1].imshow(volume[:, mid_y, :], cmap="gray")
+# axes[1].set_title("Coronal")
+#
+# axes[2].imshow(volume[:, :, mid_z], cmap="gray")
+# axes[2].set_title("Axial")
+#
+# for ax in axes:
+#     ax.axis("off")
+#
+# plt.show()
+
+# plt.imshow(image.data, cmap="gray")
+# plt.axis("off")
+# plt.show()
+print(image.metadata.__sizeof__())
