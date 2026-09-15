@@ -2,6 +2,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from pydicom import examples
 from medvision.io.loaders.pipeline import PipelineLoader
+from medvision.io.writers.nifti import NIfTIWriter
 
 matplotlib.use(backend="QtAgg")
 
@@ -35,4 +36,25 @@ image = PipelineLoader(
 # plt.imshow(image.data, cmap="gray")
 # plt.axis("off")
 # plt.show()
-print(image.metadata.__sizeof__())
+# print(image.metadata.__sizeof__())
+
+loader = PipelineLoader(
+    path=r"C:\Users\hosse\Downloads\walnut_masked.nii"
+)
+image = loader.load()
+
+writer = NIfTIWriter()
+
+output_path = writer.write(
+    image=image,
+    output_path="example/corrected.nii.gz"
+)
+print(output_path)
+
+loader.path = "example/corrected.nii.gz"
+
+result = loader.load()
+print(loader.path)
+print(result.data.shape)
+print(result.data.dtype)
+print(result.affine)
