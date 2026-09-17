@@ -1,8 +1,8 @@
 from pathlib import Path
 import nibabel as nib
-from medvision.core.image import MedicalImage
+from medvision.__core.image import MedicalImage
 from .base import BaseLoader
-from medvision.exceptions.errro import ImageLoadError
+from medvision.__exceptions.errro import ImageLoadError
 from numpy import asarray
 
 

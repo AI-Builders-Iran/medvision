@@ -8,3 +8,9 @@ medvision/__pycache__/
 =======
 >>>>>>> 7512d5414c7fded2f0aa62b9c82ecadc9f62b81b
 __pycache__/
+*.nii.gz
+*.nii
+test/example
+example/
+*.jpg
+*.png

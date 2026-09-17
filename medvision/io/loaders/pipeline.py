@@ -7,7 +7,7 @@ from .png import PNGLoader
 
 
 class PipelineLoader:
-    _loaders: dict = {
+    _loaders: dict[str, type] = {
         ".png": PNGLoader,
         ".jpg": JPGLoader,
         ".jpeg": JPGLoader,
@@ -21,8 +21,10 @@ class PipelineLoader:
 
     def load(self):
         path_str = str(self.path).lower()
-        extension = path_str
-        for extension, loader_cls in self._loaders.items():
+
+        for extension in sorted(self._loaders, key=len, reverse=True):
             if path_str.endswith(extension):
+                loader_cls = self._loaders[extension]
                 return loader_cls().load(self.path)
+
         raise ValueError(f"Unsupported image format: {self.path}")

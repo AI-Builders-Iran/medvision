@@ -1,13 +1,16 @@
 from pathlib import Path
-from medvision.core import MedicalImage
-import numpy as np
-from medvision.exceptions.errro import ImageWriteError
-from .base import BaseWriter
+
 import nibabel as nib
+import numpy as np
+
+from medvision.__core import MedicalImage
+from medvision.__exceptions.errro import ImageWriteError
+from .base import BaseWriter
+
 
 class NIfTIWriter(BaseWriter):
 
-    def write(self, image: MedicalImage, output_path: str | Path)-> Path:
+    def write(self, image: MedicalImage, output_path: str | Path) -> Path:
         output_path = Path(output_path)
 
         try:

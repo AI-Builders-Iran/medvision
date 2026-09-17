@@ -3,8 +3,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from medvision.core.image import MedicalImage
-from medvision.exceptions.errro import ImageLoadError
+from medvision.__core.image import MedicalImage
+from medvision.__exceptions.errro import ImageLoadError
 from medvision.io.loaders.base import BaseLoader
 
 
