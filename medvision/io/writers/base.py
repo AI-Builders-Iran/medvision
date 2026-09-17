@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-from medvision.core import MedicalImage
+from medvision.__core import MedicalImage
 
 
 class BaseWriter(ABC):

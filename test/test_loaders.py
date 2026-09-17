@@ -1,15 +1,18 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import matplotlib
-import matplotlib.pyplot as plt
-from pydicom import examples
 from medvision.io.loaders.pipeline import PipelineLoader
-from medvision.io.writers.nifti import NIfTIWriter
+from medvision.io.writers.png import PNGWriter
 
 matplotlib.use(backend="QtAgg")
 
-path = examples.get_path("ct")
-image = PipelineLoader(
-    path=path
-).load()
+# path = examples.get_path("ct")
+# image = PipelineLoader(
+#     path=path
+# ).load()
 
 # volume = image.data
 #
@@ -38,23 +41,55 @@ image = PipelineLoader(
 # plt.show()
 # print(image.metadata.__sizeof__())
 
+# loader = PipelineLoader(
+#     path=r"C:\Users\hosse\Downloads\walnut_masked.nii"
+# )
+# image = loader.load()
+#
+# writer = NIfTIWriter()
+#
+# output_path = writer.write(
+#     image=image,
+#     output_path="example/corrected.nii.gz"
+# )
+# print(output_path)
+#
+# loader.path = "example/corrected.nii.gz"
+#
+# result = loader.load()
+# print(loader.path)
+# print(result.data.shape)
+# print(result.data.dtype)
+# print(result.affine)
+#
 loader = PipelineLoader(
-    path=r"C:\Users\hosse\Downloads\walnut_masked.nii"
+    path=r"D:\AI Source\Projects\list_of_projects\cancer_pictures\brisc2025\classification_task\train\pituitary\brisc2025_train_03550_pi_ax_t1.jpg"
 )
-image = loader.load()
+# image1 = loader.load()
+# writer_jpg = JPGWriter()
+# writer_jpg.write(
+#     image=image1,
+#     output_path="example/picture1.jpg"
+# )
+# loader.path = "example/picture1.jpg"
+# image_loaded = loader.load()
+# print(image_loaded)
 
-writer = NIfTIWriter()
+# # -------------------------------------------------------------------------
+loader.path = r"D:\AI Source\Projects\list_of_projects\cancer_pictures\brisc2025\segmentation_task\train\masks\brisc2025_train_00015_gl_ax_t1.png"
+image2 = loader.load()
 
-output_path = writer.write(
-    image=image,
-    output_path="example/corrected.nii.gz"
-)
-print(output_path)
+# plt.imshow(image.data, cmap="gray")
+# plt.axis("off")
+# plt.show()
 
-loader.path = "example/corrected.nii.gz"
+writer_png = PNGWriter()
+out = writer_png.write(image=image2,
+                       output_path="example/picture2.png"
+                       )
 
-result = loader.load()
-print(loader.path)
-print(result.data.shape)
-print(result.data.dtype)
-print(result.affine)
+loader.path = "example/picture2.png"
+image_loaded2 = loader.load()
+
+print(image_loaded2)
+print(out)
