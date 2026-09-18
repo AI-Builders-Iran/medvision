@@ -8,4 +8,13 @@ medvision/__pycache__/
 =======
 >>>>>>> 7512d5414c7fded2f0aa62b9c82ecadc9f62b81b
 __pycache__/
+<<<<<<< HEAD
 test/test_loaders.py
+=======
+*.nii.gz
+*.nii
+test/example
+example/
+*.jpg
+*.png
+>>>>>>> fe8bc5110aa11def094b7a469b33587c769c1d2d

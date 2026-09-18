@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABC
 from pathlib import Path
 
-from medvision.core.image import MedicalImage
+from medvision.__core.image import MedicalImage
 
 
 class BaseLoader(ABC):

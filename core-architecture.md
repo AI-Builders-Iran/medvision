@@ -100,20 +100,20 @@ Detectors and correctors should implement a shared abstract interface so the pip
 
 ```python
 from abc import ABC, abstractmethod
-from medvision.core.image import MedicalImage
-from medvision.core.results import DetectionResult, CorrectionResult
+from medvision.__core.image import MedicalImage
+from medvision.__core.results import DetectionResult, CorrectionResult
 
 
 class BaseDetector(ABC):
-    @abstractmethod
-    def detect(self, image: MedicalImage) -> DetectionResult:
-        ...
+   @abstractmethod
+   def detect(self, image: MedicalImage) -> DetectionResult:
+      ...
 
 
 class BaseCorrector(ABC):
-    @abstractmethod
-    def correct(self, image: MedicalImage) -> CorrectionResult:
-        ...
+   @abstractmethod
+   def correct(self, image: MedicalImage) -> CorrectionResult:
+      ...
 ```
 
 Every concrete detector/corrector should subclass the relevant base class and implement `detect()` / `correct()` with this exact signature.
@@ -125,8 +125,8 @@ Every concrete detector/corrector should subclass the relevant base class and im
 1. **These dataclasses are frozen contracts.** If you need a new field, propose it first — the rest of the pipeline depends on the current shape.
 2. **Always import, never redefine:**
    ```python
-   from medvision.core.image import MedicalImage
-   from medvision.core.results import DetectionResult, CorrectionResult, PipelineResult
+   from medvision.__core.image import MedicalImage
+   from medvision.__core.results import DetectionResult, CorrectionResult, PipelineResult
    ```
 3. **Detectors report, correctors modify.** A detector must never touch `image.data`; a corrector must always return a new `MedicalImage`.
 4. **One detector = one `DetectionResult`. One corrector = one `CorrectionResult`.** Don't batch multiple artifact types into a single result object.

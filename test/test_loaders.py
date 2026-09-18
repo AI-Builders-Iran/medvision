@@ -1,16 +1,12 @@
-import matplotlib
-import matplotlib.pyplot as plt
-from pydicom import examples
-from medvision.io.loaders.pipeline import PipelineLoader
-from medvision.io.writers.nifti import NIfTIWriter
+import os
+import sys
 
-matplotlib.use(backend="QtAgg")
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from medvision.io import IOPipeline
 
-path = examples.get_path("ct")
-image = PipelineLoader(
-    path=path
-).load()
+io = IOPipeline()
 
+<<<<<<< HEAD
 # volume = image.data
 #
 # fig, axes = plt.subplots(1, 3, figsize=(15, 5))
@@ -58,3 +54,9 @@ image = PipelineLoader(
 # print(result.data.shape)
 # print(result.data.dtype)
 # print(result.affine)
+=======
+images, loaded_report = io.load(
+    input_path=r"D:\AI Source\Projects\list_of_projects\cancer_pictures\brisc2025\classification_task"
+)
+print(loaded_report.summary())
+>>>>>>> fe8bc5110aa11def094b7a469b33587c769c1d2d
