@@ -38,23 +38,23 @@ image = PipelineLoader(
 # plt.show()
 # print(image.metadata.__sizeof__())
 
-loader = PipelineLoader(
-    path=r"C:\Users\hosse\Downloads\walnut_masked.nii"
-)
-image = loader.load()
-
-writer = NIfTIWriter()
-
-output_path = writer.write(
-    image=image,
-    output_path="example/corrected.nii.gz"
-)
-print(output_path)
-
-loader.path = "example/corrected.nii.gz"
-
-result = loader.load()
-print(loader.path)
-print(result.data.shape)
-print(result.data.dtype)
-print(result.affine)
+# loader = PipelineLoader(
+#     path=r"C:\Users\hosse\Downloads\walnut_masked.nii"
+# )
+# image = loader.load()
+#
+# writer = NIfTIWriter()
+#
+# output_path = writer.write(
+#     image=image,
+#     output_path="example/corrected.nii.gz"
+# )
+# print(output_path)
+#
+# loader.path = "example/corrected.nii.gz"
+#
+# result = loader.load()
+# print(loader.path)
+# print(result.data.shape)
+# print(result.data.dtype)
+# print(result.affine)
